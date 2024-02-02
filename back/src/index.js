@@ -1,12 +1,12 @@
 const http = require("http");
 const PORT = 3001;
-const characters = require("./utils/data.js")
+const characters = require("./utils/data.js");
 
 http.createServer((req, res) => {
     //SETEAMOS HEADERS
     res.setHeader('Access-Control-Allow-Origin', '*');
     //RUTAS
-    if (req.url.includes("/rickandmorty/character")) {
+    if (req.url.startsWith("/rickandmorty/character")) {
         const id = Number(req.url.split("/").pop());
         const character = characters.find(
             char => char.id === id
@@ -27,6 +27,8 @@ http.createServer((req, res) => {
         .writeHead(404, { "content-type": "application/json"})
         .end( JSON.stringify({ message: `No hay nada en esta ruta` }))
 
-}).listen(PORT, "127.0.0.1",
- () => console.log(`Server listening on http://localhost:${PORT}`)
+}).listen(
+    PORT, 
+    "127.0.0.1",
+    () => console.log(`Server listening on http://localhost:${PORT}`)
 )

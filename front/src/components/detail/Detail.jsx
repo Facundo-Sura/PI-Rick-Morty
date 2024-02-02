@@ -8,8 +8,7 @@ function Detail() {
     const [ character, setCharacter] = useState({})
 
     //const URL = 'https://rym2.up.railway.app/api/character/'
-    const URL = "https://localhost:3001/rickandmorty/character"
-
+    const URL = "http://localhost:3001/rickandmorty/character";
     //const API_KEY = 'henrystaff'
   
     useEffect(() => {

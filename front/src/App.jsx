@@ -18,8 +18,8 @@ function App() {
 
    //Constantes constantes
    //const URL = 'https://rym2.up.railway.app/api/character/';
-   const URL = "https://localhost:3001/rickandmorty/character"
-   const API_KEY = 'henrystaff';
+   const URL = `http://localhost:3001/rickandmorty/character/`;
+   //const API_KEY = 'henrystaff';
    const EMAIL = 'mart9mcfl9@gmail.com';
    const PASSWORD = 'pass123';
  

@@ -14,10 +14,11 @@ function App() {
    const { pathname } = useLocation();
    const navigate = useNavigate();
    const [characters, setCharacters] = useState([]);
-   const [access, setAccess] = useState(false)
+   const [access, setAccess] = useState(false);
 
    //Constantes constantes
-   const URL = 'https://rym2.up.railway.app/api/character/';
+   //const URL = 'https://rym2.up.railway.app/api/character/';
+   const URL = "https://localhost:3001/rickandmorty/character"
    const API_KEY = 'henrystaff';
    const EMAIL = 'mart9mcfl9@gmail.com';
    const PASSWORD = 'pass123';
@@ -27,8 +28,9 @@ function App() {
       if(characters.find(char => char.id === parseInt(id))) return alert(`Ya existe el personaje con el id ${id}`)
 
       axios
-      .get(`${URL}${id}?key=${API_KEY}`)
-      .then(({data})=>{
+      //.get(`${URL}${id}?key=${API_KEY}`)
+      .get(`${URL}${id}`)
+      .then(({ data })=>{
          if (data.name) {
             setCharacters([data,...characters]);
          } else {

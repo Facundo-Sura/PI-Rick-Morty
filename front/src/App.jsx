@@ -16,16 +16,15 @@ function App() {
    const [characters, setCharacters] = useState([]);
    const [access, setAccess] = useState(false);
 
-   //Constantes constantes
    //const URL = 'https://rym2.up.railway.app/api/character/';
    const URL = `http://localhost:3001/rickandmorty/character/`;
    //const API_KEY = 'henrystaff';
-   const EMAIL = 'mart9mcfl9@gmail.com';
-   const PASSWORD = 'pass123';
+   const EMAIL = '';
+   const PASSWORD = '';
  
    const onSearch = (id) => {
       if(!id) return alert('Ingrese un ID')
-      if(characters.find(char => char.id === parseInt(id))) return alert(`Ya existe el personaje con el id ${id}`)
+      if(characters.find((char) => char.id === parseInt(id))) return alert(`Ya existe el personaje con el id ${id}`)
 
       axios
       //.get(`${URL}${id}?key=${API_KEY}`)
@@ -44,16 +43,28 @@ function App() {
       setCharacters(characters.filter((char) => char.id !== id));
    };
 
-   const login = ({ email, password }) => {
-      if (email === EMAIL && password === PASSWORD) {
-          setAccess(true)
-          navigate('/home')
-      }
-      else alert('usuario o contraseña incorrectos')
+   // const login = ({ email, password }) => {
+   //    if (email === EMAIL && password === PASSWORD) {
+   //        setAccess(true)
+   //        navigate('/home')
+   //    }
+   //    else alert('usuario o contraseña incorrectos')
+   // }
+   function login(userData) {
+      const { email, password } = userData;
+      const URL = 'http://localhost:3001/rickandmorty/login/';
+      axios(URL + `?email=${email}&password=${password}`)
+         .then(({ data }) => {
+            const { access } = data;
+            setAccess(data);
+            access && navigate('/home');
+            if(!access) return alert ("Credenciales incorrectas!")
+         });
    }
 
    useEffect(()=>{
-      !access && navigate('/')
+      // !access && navigate('/')
+      !access && navigate('/home')
    },[access])
 
    return (

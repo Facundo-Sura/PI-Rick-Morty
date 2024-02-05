@@ -22,48 +22,41 @@ function App() {
    const EMAIL = '';
    const PASSWORD = '';
  
-   const onSearch = (id) => {
-      if(!id) return alert('Ingrese un ID')
-      if(characters.find((char) => char.id === parseInt(id))) return alert(`Ya existe el personaje con el id ${id}`)
-
-      axios
-      //.get(`${URL}${id}?key=${API_KEY}`)
-      .get(`${URL}${id}`)
-      .then(({ data })=>{
+   const onSearch = async (id) => {
+      try {
+         if(!id) return alert('Ingrese un ID')
+         if(characters.find((char) => char.id === parseInt(id))) return alert(`Ya existe el personaje con el id ${id}`)
+         const { data } = await axios.get(`${URL}${id}`);
          if (data.name) {
             setCharacters([data,...characters]);
          } else {
             alert('No hay personajes con ese ID!');
          }
-      })
-      .catch((err) => alert(err.message));
-   };
-
+      } catch (error) {
+         alert(error.message);
+      }
+   }
+   
    const onClose = (id) => {
       setCharacters(characters.filter((char) => char.id !== id));
    };
 
-   // const login = ({ email, password }) => {
-   //    if (email === EMAIL && password === PASSWORD) {
-   //        setAccess(true)
-   //        navigate('/home')
-   //    }
-   //    else alert('usuario o contraseña incorrectos')
-   // }
-   function login(userData) {
-      const { email, password } = userData;
-      const URL = 'http://localhost:3001/rickandmorty/login/';
-      axios(URL + `?email=${email}&password=${password}`)
-         .then(({ data }) => {
-            const { access } = data;
-            setAccess(data);
-            access && navigate('/home');
-            if(!access) return alert ("Credenciales incorrectas!")
-         });
+   async function login(userData) {
+      try {
+         const { email, password } = userData;
+         const URL = 'http://localhost:3001/rickandmorty/login/';
+         const { data } = await axios(URL + `?email=${email}&password=${password}`);
+         setAccess(data.access);
+         access && navigate('/home');
+         
+         if(!access) return alert("Credenciales incorrectas!")
+      } catch (error) {
+         console.log(error.message);
+      }
    }
 
    useEffect(()=>{
-      // !access && navigate('/')
+      //!access && navigate('/')
       !access && navigate('/home')
    },[access])
 

@@ -1,12 +1,10 @@
 const server = require("./app");
-const PORT = 3001;
 const { conn } = require("./DB_connection");
+require('dotenv').config();
 
+const { PORT } = process.env;
 //Sincronizar la instancia de "Sequelize" al servidor
-conn.sync({ force: true })
-   .then(() => {
-      server.listen(PORT, () => {
-         console.log(`Server raised in port: ${PORT}`);
-      });
-   })
-   .catch(error => console.log(error.message))
+server.listen(PORT, async () => {
+   await conn.sync({ force:false })
+   console.log(`Server raised in port: ${PORT}`);
+});

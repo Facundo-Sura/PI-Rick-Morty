@@ -1,15 +1,24 @@
-const users = require("../utils/users.js")
+const { User } = require('../DB_connection');
 
-module.exports = (req, res) => {
-// req.query = { email: " ", password: " " }
-// host/rickandmorty/login?email= &&password= 
-    const { email, password } = req.query;
-    let access = false;
-// { access: true || false }
+async function login(req, res){
+    try {
+        const { email, password } = req.query;
+        
+        if(!email || !passwoord) return res.status(400).json({message:"Faltan datos"});
 
-    users.forEach(user => {
-        if (user.email === email && user.password === password) access= true;
-    })
+        const logUser = await User.findOne({
+            where:{
+                email
+            }
+        })
 
-    return res.json({ access });
+        if(!logUser) return res.status(404).json({message: "Usuario no encontrado"});
+
+        return logUser.passwoord === password ? res.status(202).json({access:true}):res.status(403).json({message: "Contraseña incorrecta"});
+    } catch (error) {
+        res.status(500).json({error:error.message});
+    }
+
 }
+
+module.exports = login;

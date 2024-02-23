@@ -5,6 +5,7 @@ const router = require("express").Router();
 const getCharById = require("../controllers/getCharById");
 const login = require("../controllers/login");
 const postFav = require("../controllers/postFav");
+const postUser = require("../controllers/postUser");
 const deleteFav = require("../controllers/deleteFav");
 
 //Todas las rutas host/rickandmorty

@@ -3,7 +3,7 @@ import axios from "axios";
 const ENDPOINT = 'http://localhost:3001/rickandmorty/fav';
 
 export const addFav = (character) => {
-    return async (dispatch) => {
+   return async (dispatch) => {
       try {
          const { data } = await axios.post(ENDPOINT, character)
          return dispatch({
@@ -17,11 +17,11 @@ export const addFav = (character) => {
             payload: error.message
          });
       }
-    };
- };
+   };
+};
 
- export const removeFav = (id) => {
-    return async (dispatch) => {
+export const removeFav = (id) => {
+   return async (dispatch) => {
       try {
          const { data } = await axios.delete(`${ENDPOINT}/${id}`)
          return dispatch({
@@ -35,19 +35,19 @@ export const addFav = (character) => {
             payload: error.message
          });
       }
-    };
- };
+   };
+};
 
 export const filterCards = (gender) => {
-    return {
-        type:FILTER,
-        payload:gender
-    }
+   return {
+      type: FILTER,
+      payload: gender
+   }
 }
 
 export const orderCards = (orden) => {
-    return {
-        type:ORDER,
-        payload:orden
-    }
+   return {
+      type: ORDER,
+      payload: orden
+   }
 }

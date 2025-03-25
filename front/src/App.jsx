@@ -54,10 +54,10 @@ function App() {
       }
    }
 
-   useEffect(()=>{
+   // useEffect(()=>{
       // !access && navigate('/')
-      !access && navigate('/home')
-   },[access])
+      // !access && navigate('/home')
+   // },[access])
 
    return (
       <div className='App'>

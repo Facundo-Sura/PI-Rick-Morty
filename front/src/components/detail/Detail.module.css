@@ -1,20 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
 .page {
-    background: url('./bg-detail.webp') no-repeat cover center;
+    background: #000;
     width: 100%;
-    height: fit-content;
+    height: 82.2vh;
     margin: 0;
-    padding: 0;
+    padding: 50px 0;
 }
 
 .container {
+    background-color: #f5f5f5;
+    box-shadow: 2px 2px 30px rgba(191, 1, 230, 0.678),
+        -2px -2px 30px rgba(191, 1, 230, 0.678),
+        -2px 2px 30px rgba(191, 1, 230, 0.678),
+        2px -2px 30px rgba(191, 1, 230, 0.678);
     max-width: 50%;
-    margin: 25px auto;
+    margin: 0 auto;
     border: 2px solid #000;
     border-radius: 25px;
     padding: 20px;
-    background-color: #f5f5f5;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 }

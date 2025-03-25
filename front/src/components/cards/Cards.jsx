@@ -1,10 +1,11 @@
   import Card from '../card/Card';
+  import style from './Cards.module.css';
 
 export default function Cards(props) {
    //console.log(props);
    const { characters, onClose } = props
    return (
-   <div>
+   <div className={style.page}>
       {
          characters.map(char => (
             <Card

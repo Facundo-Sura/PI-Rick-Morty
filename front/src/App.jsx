@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import './App.css';
 import Cards from './components/cards/Cards.jsx';
 import Nav from './components/nav/Nav.jsx';
 import About from'./components/about/About.jsx';
@@ -17,8 +16,8 @@ function App() {
    const [access, setAccess] = useState(false);
 
    //const URL = 'https://rym2.up.railway.app/api/character/';
-   const URL = `http://localhost:3001/rickandmorty/character/`;
    //const API_KEY = 'henrystaff';
+   const URL = `http://localhost:3001/rickandmorty/character/`;
    const EMAIL = '';
    const PASSWORD = '';
  
@@ -56,8 +55,8 @@ function App() {
    }
 
    useEffect(()=>{
-      !access && navigate('/')
-      //!access && navigate('/home')
+      // !access && navigate('/')
+      !access && navigate('/home')
    },[access])
 
    return (

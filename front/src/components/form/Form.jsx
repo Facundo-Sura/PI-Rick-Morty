@@ -1,44 +1,61 @@
 import { useState } from "react";
 import validation from "./validation";
+import style from "./Form.module.css";
 
 function Form({ login }) {
-    const [userData, setUserData] = useState({
-        email:'',
-        password:''
-    })
+  const [userData, setUserData] = useState({
+    email: "",
+    password: "",
+  });
 
-    const [errors, setErrors] = useState({})
+  const [errors, setErrors] = useState({});
 
-    const handleChange = (evento) => {
-        setErrors(validation({...userData, [evento.target.name]:evento.target.value }))
-        setUserData({...userData, [evento.target.name]:evento.target.value })
-    }
+  const handleChange = (evento) => {
+    setErrors(
+      validation({ ...userData, [evento.target.name]: evento.target.value })
+    );
+    setUserData({ ...userData, [evento.target.name]: evento.target.value });
+  };
 
-    const handleSubmit = (evento) => {
-        evento.preventDefault()
-        login(userData)
-    }
+  const handleSubmit = (evento) => {
+    evento.preventDefault();
+    login(userData);
+  };
 
-    return <div>
-        <form onSubmit={handleSubmit}>
-            <label htmlFor="email">
-                Email:
-                <input type="text" placeholder="Ingrese un email" id="email" name="email" value={userData.email} onChange={handleChange}
-                />
-            </label>
+  return (
+    <div className={style.pagina}>
+      <form onSubmit={handleSubmit} className={style.fomrulario}>
+        <h2 className={style.login}>Login</h2>
+        <div className={style.info}>
+          <input
+            type="text"
+            placeholder="Email"
+            id="email"
+            name="email"
+            className={style.input}
+            value={userData.email}
+            onChange={handleChange}
+          />
+          {errors.email && <p>{errors.email}</p>}
+        </div>
 
-            { errors.email && <p>{errors.email}</p>}
+        <div className={style.info}>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="contraseña"
+            className={style.input}
+            value={userData.password}
+            onChange={handleChange}
+          />
+          {errors.password && <p>{errors.password}</p>}
+        </div>
 
-            <label htmlFor="password">
-                Contraseña:
-                <input type="password" id="password" name="password" value={userData.password} onChange={handleChange} />
-            </label>
-
-            { errors.password && <p>{errors.password}</p>}
-
-            <button>Submit</button>
-        </form>
-    </div>;
+        <button className={style.enviar}>Submit</button>
+      </form>
+    </div>
+  );
 }
 
 export default Form;

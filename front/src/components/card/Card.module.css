@@ -11,6 +11,7 @@
 }
 
 .header {
+    background: linear-gradient(black, blueviolet);
     width: 100%;
     height: 30px;
     padding: 5px;
@@ -35,6 +36,7 @@
 }
 
 .name {
+    background: linear-gradient(blueviolet, black);
     text-decoration: none;
     text-align: center;
     color: #ccc;

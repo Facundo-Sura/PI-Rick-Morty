@@ -1,6 +1,7 @@
 const express = require('express');
-const server = express();
 const morgan = require("morgan");
+const cors = require('cors');
+const server = express();
 const router = require('./routes');
 
 //Middlewares
@@ -19,6 +20,7 @@ server.use((req, res, next) => {
 });
 server.use(express.json());
 server.use(morgan("dev"));
+server.use(cors());
 
 server.use("/rickandmorty", router);
 

@@ -4,6 +4,23 @@ import { addFav, removeFav } from "../../redux/actions";
 import { useEffect, useState } from "react";
 import style from "./Card.module.css";
 
+function mapDispatchToProps(dispatch) {
+  return {
+    addFav: function (character) {
+      dispatch(addFav(character));
+    },
+    removeFav: function (id) {
+      dispatch(removeFav(id));
+    },
+  };
+}
+
+function mapStateToProps(state) {
+  return {
+    myFavorites: state.myFavorites,
+  };
+}
+
 function Card({
   id,
   name,
@@ -40,12 +57,20 @@ function Card({
     <div className={style.card}>
       <div className={style.header}>
         {isFav ? (
-          <button onClick={handleFavorite} className={style.btn}>❤️</button>
+          <button onClick={handleFavorite} className={style.btn}>
+            ❤️
+          </button>
         ) : (
-          <button onClick={handleFavorite} className={style.btn}>🤍</button>
+          <button onClick={handleFavorite} className={style.btn}>
+            🤍
+          </button>
         )}
         <h2 className={style.id}>{id}</h2>
-        {pathname === "/home" && <button onClick={() => onClose(id)} className={style.btn}>X</button>}
+        {pathname === "/home" && (
+          <button onClick={() => onClose(id)} className={style.btn}>
+            X
+          </button>
+        )}
       </div>
       <Link to={`/detail/${id}`} className={style.name}>
         <h2 className={style.name}>{name}</h2>
@@ -59,23 +84,6 @@ function Card({
       </div>
     </div>
   );
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    addFav: function (character) {
-      dispatch(addFav(character));
-    },
-    removeFav: function (id) {
-      dispatch(removeFav(id));
-    },
-  };
-}
-
-function mapStateToProps(state) {
-  return {
-    myFavorites: state.myFavorites,
-  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card);

@@ -1,6 +1,6 @@
 .container {
     background: black;
-    min-height: 91.4vh;
+    min-height: 100vh;
     color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: grid;

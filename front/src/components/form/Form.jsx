@@ -36,7 +36,7 @@ function Form({ login }) {
             value={userData.email}
             onChange={handleChange}
           />
-          {errors.email && <p>{errors.email}</p>}
+          {errors.email && <p className={style.error}>{errors.email}</p>}
         </div>
 
         <div className={style.info}>
@@ -49,7 +49,7 @@ function Form({ login }) {
             value={userData.password}
             onChange={handleChange}
           />
-          {errors.password && <p>{errors.password}</p>}
+          {errors.password && <p className={style.error}>{errors.password}</p>}
         </div>
 
         <button className={style.enviar}>Submit</button>

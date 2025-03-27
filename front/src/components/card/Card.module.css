@@ -1,7 +1,8 @@
 .card {
+    background: black;
     width: 100%;
     max-width: 300px;
-    margin: 15px auto;
+    margin: 50px auto;
     padding: 5px auto;
     border: 1px solid #ccc;
     border-radius: 5px;

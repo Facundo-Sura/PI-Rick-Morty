@@ -70,3 +70,10 @@
                 -7px 7px 10px #7a02be,
                 -7px -7px 10px #7a02be;
 }
+
+.error {
+    background: black;
+    color: red;
+    font-size: 18px;
+    text-align: center;
+}

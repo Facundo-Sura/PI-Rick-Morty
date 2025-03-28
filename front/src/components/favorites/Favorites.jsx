@@ -17,11 +17,12 @@ function Favorites({ myFavorites }) {
 
   return (
     <div className={style.container}>
-      <div>
+      <div className={style.bar}>
         <select
           name="order"
           defaultValue="orderCharacter"
           onChange={hanldeOrder}
+          className={style.select}
         >
           <option value="orderCharacter" disabled="disabled">
             order...
@@ -29,7 +30,12 @@ function Favorites({ myFavorites }) {
           <option value="asendente">Ascendente</option>
           <option value="descendente">Descendente</option>
         </select>
-        <select name="filter" defaultValue="ALl" onChange={handleFilter}>
+        <select
+          name="filter"
+          defaultValue="ALl"
+          onChange={handleFilter}
+          className={style.select}
+        >
           <option value="All">All</option>
           <option value="Male">Male</option>
           <option value="Female">Female</option>
@@ -37,6 +43,7 @@ function Favorites({ myFavorites }) {
           <option value="unknown">Unknown</option>
         </select>
       </div>
+      <div className={style.cards}>
       {myFavorites.map((char) => (
         <Card
           key={char.id}
@@ -49,6 +56,7 @@ function Favorites({ myFavorites }) {
           image={char.image}
         />
       ))}
+      </div>
     </div>
   );
 }

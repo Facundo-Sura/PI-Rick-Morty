@@ -1,39 +1,79 @@
 .bar {
-    width: 25%;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 25%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .input {
-    width: 70%;
-    height: 100%;
-    margin: 7px 0;
-    border: none;
-    border-radius: 5px;
-    padding: 3px;
-    font-size: 1.2rem;
+  width: 70%;
+  height: 100%;
+  margin: 7px 0;
+  border: none;
+  border-radius: 5px;
+  padding: 3px;
+  font-size: 1.2rem;
 }
 
 .input:focus {
-    outline: none;
+  outline: none;
 }
 
 .add {
-    width: 30%;
-    height: 100%;
-    margin: 7px 6px;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 5px;
-    background: transparent;
-    color: white;
-    font-size: 1.2rem;
-    cursor: pointer;
+  width: 30%;
+  height: 100%;
+  margin: 7px 6px;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 5px;
+  background: transparent;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
 }
 
 .add:hover {
-    background: rgba(255, 255, 255, 0.5);
-    color: rgba(0, 0, 0, 0.5);
+  background: rgba(255, 255, 255, 0.5);
+  color: rgba(0, 0, 0, 0.5);
+}
+
+/* ============= Mobile First (0px - 768px) ============= */
+@media screen and (max-width: 768px) {
+
+  /* SearchBar */
+  .bar {
+    width: 90%;
+    /* Ocupa casi todo el ancho */
+    margin: 10px auto;
+    flex-direction: column;
+  }
+
+  .input {
+    width: 100%;
+    font-size: 1rem;
+    margin: 5px 0;
+  }
+
+  .add {
+    width: 100%;
+    margin: 5px 0;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.2);
+    /* Mejor visibilidad */
+  }
+}
+
+/* ============= Tablet (769px - 1024px) ============= */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+
+  /* SearchBar */
+  .bar {
+    width: 50%;
+    /* Más ancho que en desktop */
+  }
+
+  .item {
+    font-size: 1.1rem;
+  }
 }

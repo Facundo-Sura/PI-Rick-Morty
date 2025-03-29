@@ -6,3 +6,70 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
 }
+
+/* ============= Mobile First (0px - 576px) ============= */
+@media screen and (max-width: 576px) {
+    .page {
+        grid-template-columns: 1fr !important;
+        background-attachment: scroll !important;
+        /* Mejor rendimiento en móvil */
+        padding: 70px 10px 20px !important;
+        /* Ajuste para navbar */
+        gap: 15px !important;
+    }
+}
+
+/* ============= Tablet Vertical (577px - 768px) ============= */
+@media screen and (min-width: 577px) and (max-width: 768px) {
+    .page {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px !important;
+        padding: 80px 15px 25px !important;
+    }
+}
+
+/* ============= Tablet Horizontal (769px - 992px) ============= */
+@media screen and (min-width: 769px) and (max-width: 992px) {
+    .page {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 20px !important;
+        padding: 80px 20px 30px !important;
+    }
+}
+
+/* ============= Pantallas medianas (993px - 1200px) ============= */
+@media screen and (min-width: 993px) and (max-width: 1200px) {
+    .page {
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 15px !important;
+        padding: 80px 25px 35px !important;
+    }
+}
+
+/* ============= Ajustes especiales ============= */
+@media screen and (max-width: 768px) {
+    .page {
+        background-position: 60% center !important;
+    }
+}
+
+/* Para dispositivos con altura reducida */
+@media screen and (max-height: 600px) {
+    .page {
+        min-height: 150vh !important;
+    }
+}
+
+/* Efecto de carga progresiva */
+@media screen and (max-width: 768px) {
+    .page {
+        will-change: transform;
+    }
+}
+
+/* Optimización para iOS */
+@supports (-webkit-touch-callout: none) {
+    .page {
+        background-attachment: scroll !important;
+    }
+}

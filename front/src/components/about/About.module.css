@@ -23,3 +23,77 @@
     list-style-type: none;
     padding: 0;
 }
+
+/* ============= Mobile First (0px - 576px) ============= */
+@media screen and (max-width: 576px) {
+    .container {
+        grid-template-rows: 10px 5px 1fr !important;
+        padding: 20px 15px !important;
+        text-shadow: 3px 3px 15px yellow,
+            -3px 3px 15px yellow,
+            3px -3px 15px yellow,
+            -3px -3px 15px yellow !important;
+        border-width: 1px !important;
+    }
+
+    .content {
+        padding: 0 10px !important;
+    }
+
+    .content h1 {
+        font-size: 1.8rem !important;
+        margin-bottom: 15px !important;
+    }
+
+    .content h3 {
+        font-size: 1.3rem !important;
+        margin: 15px 0 !important;
+    }
+
+    .content p {
+        font-size: 0.9rem !important;
+        line-height: 1.5 !important;
+    }
+}
+
+/* ============= Tablet (577px - 768px) ============= */
+@media screen and (min-width: 577px) and (max-width: 768px) {
+    .container {
+        grid-template-rows: 12px 5px 1fr !important;
+        padding: 200px 20px !important;
+    }
+
+    .content h1 {
+        font-size: 2rem !important;
+    }
+}
+
+/* ============= Pantallas pequeñas (769px - 992px) ============= */
+@media screen and (min-width: 769px) and (max-width: 992px) {
+    .container {
+        padding: 0 10% !important;
+    }
+}
+
+/* ============= Efectos hover solo en desktop ============= */
+@media (hover: hover) {
+    .list li:hover {
+        color: yellow;
+        transform: scale(1.02);
+        transition: all 0.3s ease;
+    }
+}
+
+/* Para evitar desbordamiento en móviles */
+@media (max-width: 576px) {
+    .container {
+        overflow-x: hidden !important;
+        word-wrap: break-word !important;
+    }
+}
+
+/* Ajuste específico para listas */
+.list li {
+    margin: 12px 0 !important;
+    padding: 8px 0 !important;
+}

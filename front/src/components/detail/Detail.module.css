@@ -41,3 +41,91 @@
     font-weight: bold;
     margin-bottom: 15px;
 }
+
+/* ============= Mobile First (0px - 576px) ============= */
+@media screen and (max-width: 576px) {
+    .page {
+        padding: 50px 0 !important;
+        height: auto !important;
+        min-height: 100vh !important;
+    }
+
+    .container {
+        max-width: 90% !important;
+        grid-template-columns: 1fr !important;
+        padding: 15px !important;
+        margin: 20px auto !important;
+    }
+
+    .info {
+        grid-row: 2 !important;
+        margin-top: 20px !important;
+    }
+
+    .name {
+        font-size: 1.5em !important;
+        text-align: center !important;
+    }
+
+    .tags {
+        font-size: 1.1em !important;
+        text-align: center !important;
+    }
+
+    /* Reduce el efecto de sombra en móviles */
+    .container {
+        box-shadow: 1px 1px 15px rgba(191, 1, 230, 0.5),
+            -1px -1px 15px rgba(191, 1, 230, 0.5) !important;
+    }
+}
+
+/* ============= Tablet Vertical (577px - 768px) ============= */
+@media screen and (min-width: 577px) and (max-width: 768px) {
+    .container {
+        max-width: 80% !important;
+    }
+
+    .name {
+        font-size: 1.8em !important;
+    }
+
+    .tags {
+        font-size: 1.3em !important;
+    }
+}
+
+/* ============= Tablet Horizontal (769px - 992px) ============= */
+@media screen and (min-width: 769px) and (max-width: 992px) {
+    .container {
+        max-width: 70% !important;
+    }
+}
+
+/* ============= Pantallas pequeñas (993px - 1200px) ============= */
+@media screen and (min-width: 993px) and (max-width: 1200px) {
+    .container {
+        max-width: 60% !important;
+    }
+}
+
+/* ============= Efectos hover solo en desktop ============= */
+@media (hover: hover) {
+    .container:hover {
+        transform: scale(1.01);
+        transition: all 0.3s ease;
+    }
+}
+
+/* Para imágenes responsivas (si las tienes) */
+@media (max-width: 576px) {
+    .container img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+}
+
+/* Mejor espaciado en móviles */
+.tags {
+    margin: 10px 0 !important;
+    padding: 0 5px !important;
+}

@@ -1,79 +1,156 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
 .pagina {
-    background: url('./bg-login.webp');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 100%;
-    height: 100vh;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(3, 1fr);
-    gap: 1rem;
+  background: url('./bg-login.webp');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 1rem;
 }
 
 .fomrulario {
-    background-color: rgba(255, 255, 255, .15);
-    backdrop-filter: blur(5px);
-    width: 32%;
-    height: 350px;
-    margin: 0 auto;
-    border: 1px solid #000;
-    border-radius: 10px;
-    padding: 2rem;
-    box-shadow: 2px 2px 20px #000;
-    font-family: "Rubik", sans-serif;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(4, 1fr);
-    grid-row: 2/3;
+  background-color: rgba(255, 255, 255, .15);
+  backdrop-filter: blur(5px);
+  width: 32%;
+  height: 350px;
+  margin: 0 auto;
+  border: 1px solid #000;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 2px 2px 20px #000;
+  font-family: "Rubik", sans-serif;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(4, 1fr);
+  grid-row: 2/3;
 }
 
 .login {
-    font-size: 2rem;
-    text-align: center;
-    border-bottom: 2px solid #000;
-    padding-bottom: 1rem;
+  font-size: 2rem;
+  text-align: center;
+  border-bottom: 2px solid #000;
+  padding-bottom: 1rem;
 }
 
 .input {
-    width: 100%;
-    margin: 25px 0;
-    border: none;
-    border-radius: 25px;
-    padding: 5px;
-    text-align: center;
-    font-size: 18px;
-    outline: none;
+  width: 100%;
+  margin: 25px 0;
+  border: none;
+  border-radius: 25px;
+  padding: 5px;
+  text-align: center;
+  font-size: 18px;
+  outline: none;
 }
 
 .enviar {
-    background-color: #000;
-    color: #fff;
-    width: 100%;
-    margin: 5px 0;
-    border: none;
-    border-radius: 25px;
-    padding: 2px;
-    text-align: center;
-    font-size: 18px;
-    cursor: pointer;
+  background-color: #000;
+  color: #fff;
+  width: 100%;
+  margin: 5px 0;
+  border: none;
+  border-radius: 25px;
+  padding: 2px;
+  text-align: center;
+  font-size: 18px;
+  cursor: pointer;
 }
 
 .enviar:hover {
-    background-color: #fff;
-    color: #7a02be;
-    box-shadow: 7px 7px 10px #7a02be,
-                7px -7px 10px #7a02be,
-                -7px 7px 10px #7a02be,
-                -7px -7px 10px #7a02be;
+  background-color: #fff;
+  color: #7a02be;
+  box-shadow: 7px 7px 10px #7a02be,
+    7px -7px 10px #7a02be,
+    -7px 7px 10px #7a02be,
+    -7px -7px 10px #7a02be;
 }
 
 .error {
-    background: black;
-    color: red;
-    font-size: 18px;
-    text-align: center;
+  background: black;
+  color: red;
+  font-size: 18px;
+  text-align: center;
+}
+
+/* ============= Mobile First (0px - 576px) ============= */
+@media screen and (max-width: 576px) {
+  .pagina {
+    background-position: 60% center;
+    /* Ajusta imagen de fondo */
+    background-attachment: fixed;
+    /* Efecto parallax opcional */
+    grid-template-rows: 0.5fr 1fr 0.5fr;
+    /* Redistribuye espacio */
+  }
+
+  .fomrulario {
+    width: 90% !important;
+    /* Ocupa casi toda la pantalla */
+    height: 320px !important;
+    padding: 1.5rem !important;
+    margin-top: 20px !important;
+  }
+
+  .login {
+    font-size: 1.5rem !important;
+    padding-bottom: 0.5rem !important;
+  }
+
+  .input {
+    margin: 15px 0 !important;
+    font-size: 16px !important;
+  }
+
+  .enviar {
+    font-size: 16px !important;
+    padding: 8px !important;
+  }
+}
+
+/* ============= Tablet Vertical (577px - 768px) ============= */
+@media screen and (min-width: 577px) and (max-width: 768px) {
+  .fomrulario {
+    width: 70% !important;
+    height: 330px !important;
+  }
+
+  .login {
+    font-size: 1.8rem !important;
+  }
+}
+
+/* ============= Tablet Horizontal (769px - 992px) ============= */
+@media screen and (min-width: 769px) and (max-width: 992px) {
+  .fomrulario {
+    width: 50% !important;
+  }
+}
+
+/* ============= Pantallas pequeñas (993px - 1200px) ============= */
+@media screen and (min-width: 993px) and (max-width: 1200px) {
+  .fomrulario {
+    width: 40% !important;
+  }
+}
+
+@media (hover: none) {
+  .enviar:hover {
+    box-shadow: none !important;
+    background-color: #000 !important;
+    color: #fff !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .input {
+    font-size: 16px !important;
+    padding: 12px 5px !important;
+    /* Área táctil más grande */
+  }
 }

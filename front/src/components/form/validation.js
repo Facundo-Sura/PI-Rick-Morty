@@ -10,7 +10,7 @@ function validation(data){
     if(!regexEmail.test(data.email)) errors.email = 'Debe ser un email';
 
       // * Opción 1 para la longitud del email con Regex
-    // if(!expresionRegular.test(data.email)) errors.email = 'La longitud debe ser entre 1 y 35 caracteres'
+    // if(!expresionRegular.test(data.email))errors.email = 'La longitud debe ser entre 1 y 35 caracteres'
     // * Opción 2 para la longitud del email
     if(!data.email) errors.email = 'Campo requerido'
     if(data.email.length > 35) errors.email = 'La longitud debe ser de 35 caracteres'

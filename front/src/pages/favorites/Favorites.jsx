@@ -1,6 +1,6 @@
 import React from "react";
 import { connect, useDispatch } from "react-redux";
-import Card from "../card/Card";
+import Card from "../../components/card/Card";
 import { filterCards, orderCards } from "../../redux/actions";
 import style from "./Favorites.module.css";
 

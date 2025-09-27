@@ -12,7 +12,7 @@ function About() {
       <div className={style.content}>
         <p>
           ¡Bienvenido/a al multiverso de Rick & Morty! Esta app consume la API
-          oficial de la serie para mostrarte personajes, episodios y locuras
+          oficial de la serie para mostrarte personajes y locuras
           interdimensionales.
         </p>
 
@@ -36,6 +36,7 @@ function About() {
             href="https://github.com/Facundo-Sura/PI-Rick-Morty.git"
             target="_blank"
             rel="noopener noreferrer"
+            className={style.list}
           >
             [Enlace aquí]
           </a>

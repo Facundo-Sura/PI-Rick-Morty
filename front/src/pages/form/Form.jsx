@@ -55,6 +55,10 @@ function Form({ login }) {
 
         <button className={style.enviar}>Submit</button>
       </form>
+      <footer className={style.footer}>
+        <p>email: example@mail.com</p>
+        <p>password: password12</p>
+      </footer>
     </div>
   );
 }

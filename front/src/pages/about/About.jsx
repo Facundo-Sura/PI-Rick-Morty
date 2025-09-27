@@ -43,6 +43,11 @@ function About() {
           .
         </p>
       </div>
+      <div>
+        <p>ACLARACION: La seccions de favorites no funciona debido a que el backend no tiene deploy.</p>
+        <p>Pero en el repositorio de github encontraras ambas partes y una gia de como hacerlas funcionar.</p>
+        <p>Notara alli que todo anda a la perfeccion.</p>
+      </div>
     </div>
   );
 }
